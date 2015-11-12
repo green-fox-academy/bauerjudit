@@ -1,0 +1,39 @@
+header {
+  background-image:
+  background-position: center center;
+  background-size: cover;
+  padding: 200px;
+}
+
+
+body {
+  color: #333
+  font-family: 'Cuprum', sans-serif;
+  line-height: 1.5;
+
+}
+
+h1 {
+  font-family: font-family: 'Montserrat', sans-serif;
+
+}
+
+h3 {
+  font-family: font-family: 'Montserrat', sans-serif;
+
+}
+p {
+  font-family: 'Cuprum', sans-serif;
+  font-style: italic;
+}
+
+blockquote {
+  color: white;
+  font-size: 50;
+  background-color: #333;
+  padding: 50px 100px 50px;
+
+
+
+
+}
