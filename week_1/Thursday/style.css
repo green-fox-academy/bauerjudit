@@ -1,24 +1,21 @@
-body {
+ body {
   color: #333;
   font-family: "josefin sans", sans-serif;
   line height: 1.5;
-}
+  }
 
-h1 {
+ h1 {
   font-family: "abril fatface", serif;
-}
+ }
 
-.wrap {
+ .wrap {
   max-width: 600px;
   margin: 0 auto;
+ }
 
-}
-
-header {
+ header {
   background-image: url(E:\Képek/11080343_984504628235532_5256152633604198816_o.jpg);
   background-position: center center;
   background-size: cover;
   padding: 200px;
-
-
-}
+ }

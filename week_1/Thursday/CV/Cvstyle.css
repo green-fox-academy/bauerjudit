@@ -55,7 +55,7 @@
   }
 
 
-  li {
+  ul {
      font-size: 20px;
      list-style:disc;
      list-style-position: outside;
@@ -90,9 +90,8 @@
   }
 
   .profilepicture {
-    padding-bottom: 0px;
-    padding-left: 80px;
-    padding-top: 50px;
+    margin-top: -80px;
+    margin-left: 80px;
     position: fixed;
   }
 
