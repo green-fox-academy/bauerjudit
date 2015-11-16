@@ -1,0 +1,116 @@
+header {
+  background: #c3c3c3;
+  background-blend-mode:color-burn;
+  background-image:url(C:\Users\Judit\Documents\test\week_1\Thursday\CV\image\b4kYn07.jpg);
+  background-position:center center;
+  background-size: cover;
+  box-sizing: border-box;
+  margin: auto;
+  margin-bottom: -150px;
+  min-height: 350px;
+  padding: 200px;
+}
+
+strong {
+  color: white;
+  font-size: 70px;
+  }
+
+body {
+  color: #4f4e4e;
+  font-family:'Play', sans-serif;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #4f4e4e;
+  font-family: 'Conforta', sans-serif;
+  font-size: 40px;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 20px;
+  padding-top: 30px;
+  width: 60%;
+}
+
+h2 {
+  color: #4f4e4e;
+  font-family: 'Conforta', sans-serif;
+  font-size: 25px;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 10px;
+  width: 60%;
+}
+
+p {
+  color: #4f4e4e;
+  font-family: 'Play', sans-serif;
+  font-size: 25px;
+  font-style: italic;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 40px;
+  width: 60%;
+}
+
+
+ul {
+  font-size: 20px;
+  list-style:disc;
+  list-style-position: outside;
+  margin: auto;
+  text-align: left;
+  padding-bottom: 10px;
+  width: 60%;
+}
+
+blockquote {
+  color: white;
+  background-color: #6f6f6f;
+  font-family: 'Conforta', sans-serif;
+  font-size: 35px;
+  margin:auto;
+  text-align:left 10px;
+  padding-bottom: 30px;
+  padding-left: 20px;
+  padding-top: 10px;
+  width: 65%;
+}
+
+div.hr {
+  background: #6f6f6f;
+  height:7px;
+  margin: auto;
+  width:65%;
+}
+
+div.hr hr {
+  display: none;
+}
+
+.profilepicture {
+  margin-top: -80px;
+  margin-left: 80px;
+  height: 120px;
+  position: fixed;
+  width: 110px;
+}
+
+.begin {
+  margin-top: 150px;
+}
+
+.full {
+  background-color: #dddada;
+}
+
+.inside {
+  background-color: white;
+  margin: 0 auto;
+  max-width: 59.39em;
+}
+
+.name {
+  padding-left: 100px;
+}
