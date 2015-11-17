@@ -1,0 +1,106 @@
+<!doctype.html>
+<html>
+<head>
+    <title>Form próba</title>
+    <link rel="stylesheet" href="C:\Users\Judit\Documents\test\week-2\tuesday\practice.css">
+    <meta charset="utf-8">
+  </head>
+
+  <body>
+    <h1>Form próba</h1>
+      <form>
+        <p>
+          <label for="valami">írj ide valamit:</label>
+          <input  type="text" required id="valami" placeholder="ide">
+        </p>
+        <p>
+          <label for="szín">szín</label>
+          <input type="color" id="szín">
+        </p>
+        <p>
+          <label for="datum">datum</label>
+          <input type="date" id="datum">
+        </p>
+        <p>
+          <progress type="progress" value="50" max="100"id="hal">hal</progress>
+        </p>
+        <p>
+          <label for="csík">csík</label>
+          <input type="range" id="csík">
+        </p>
+        <p>
+          <label for="number">szám</label>
+          <input type="number" id="szám">
+        </p>
+
+        <P>
+          <label for="jelszo">type="password":</label>
+          <input type="password">
+        </P>
+
+        <P>
+          <label for="mailcim">type="mail":</label>
+          <input type="mail">
+        </P>
+        <P>
+          <label for="webcím">type="url":</label>
+          <input type="url" id="webcím">
+        </P>
+        <P>
+          <label for="valami">type="search":</label>
+          <input type="search" id="kereso" >
+        </P>
+        <P>
+          <input type="submit" value="nyomd meg">
+          <button type="submit" name="gomb">nyomassad</button>
+        </p>
+
+        <p>
+          <label for="legordulo">select + option:</label>
+          <select id="legordulo">
+            <option>majom</option>
+            <option disabled="csiga">csiga</option>
+            <option>banan</option>
+            <option>zsiraf</option>
+            <option>zebra</option>
+          </select>
+        </p>
+
+        <P>
+          <label for="texterulet">textarea:</label>
+          <textarea id="texterulet" name="name" rows="8" cols="40">hello</textarea>
+        </P>
+      </form>
+      <form action="">
+
+        <P>
+          <label for="izé">Kattintsd be a checkboxot</label>
+          <input type="checkbox" id="izé">
+        </P>
+
+        <P>
+            <ul>
+              <li>
+                <label for="radio">
+                  <input type="radio" name="ugyanaz">
+                  radio gom labelel
+                </label>
+              </li>
+
+              <li>
+                <label for="radio">
+                  <input type="radio" name="ugyanaz">
+                  radio gom labelel
+                </label>
+              </li>
+            </ul>
+          <input type="radio" name="ugyanaz" value="ertek">
+          <input type="radio" name="ugyanaz" value="kulonbozo">
+        </P>
+
+      </form>
+
+
+  </body>
+
+</html>
