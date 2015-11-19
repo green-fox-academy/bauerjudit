@@ -3,7 +3,7 @@ html {
 }
 
 body {
- background: #f6f6f6;
+ background: linear-gradient(to bottom, #fff 50px, #f6f6f6 150px);
  margin: 0;
  display: flex;
  flex-direction: row;
@@ -24,6 +24,59 @@ body {
    font-size: 28.8px;
  }
 
+ h4 {color: #4d4d4d;
+   font-family: sans-serif;
+   font-size: 12px;
+   font-weight: normal;
+ }
+
+ a {
+   color: rgb(6, 69, 173);
+   text-decoration: none;
+ }
+
+ a:hover {
+   text-decoration: underline;
+ }
+
+ a:visited {
+   color: #0b0080;
+ }
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+ .tab {
+   background: linear-gradient(to bottom, #fff 0%, #a7d7f9 100%);
+   padding-left: 1px;
+ }
+
+.tab li {
+  padding-right: 1px;
+}
+
+.tab a {
+  background: linear-gradient(to bottom, #fff 0%, #e8f2f8 100%);
+  display: block;
+  bottom: -1px;
+  padding: 15px 5px 5px 5px;
+  position: relative;
+}
+
+.tab a:visited {
+  color: #0b0080;
+}
+
+.active-tab a {
+  background: #fff;
+  border-bottom: 1px solid #fff;
+
+}
+
 .main-container {
   order: 1;
   width: 100%;
@@ -35,7 +88,12 @@ body {
   felx: 0 0 auto;
 }
 
+.main-sidebar li {
+  list-style: none;
+}
+
 .main-header {
+  font-size: 12px;
   height: 80px;
   position: relative;
 }
@@ -52,6 +110,22 @@ body {
 
 .main-header nav, .search {
   position: absolute;
+}
+
+.user-menu {
+  top: 0;
+  right: 10px;
+}
+
+.user-menu a {
+  display: block;
+  padding: 10px 5px;
+}
+
+.user-status {
+  background: url(https://en.wikipedia.org/static/1.27.0-wmf.6/skins/Vector/images/user-icon.png?9e7ea) no-repeat 5px center;
+  color: grey;
+  padding: 10px 5px 10px 20px;
 }
 
 .main-content {
@@ -85,11 +159,6 @@ body {
   color: rgba(0, 0, 0, 0);
 }
 
-.user-menu {
-  top: 0;
-  right: 0;
-}
-
 .talk-menu {
   left: 0;
   bottom: 0px;
@@ -101,11 +170,34 @@ body {
 }
 
 .search {
-  right: 0px;
-  bottom: 0px;
+  background-color: transparent;
+  border: 1px solid;
+  color: #aaa;
+  font-size: 13px;
+  right: 10px;
+  bottom: 3px;
+  padding: 5px 5px 5px;
+  width: 15%;
+  height: 25px;
+  background: url(https://en.wikipedia.org/static/1.27.0-wmf.6/skins/Vector/images/search-ltr.png?511c1) no-repeat center right 5px, linear-gradient(to bottom, #f6f6f6 0%, white 100%);
+  outline: 0;
 }
 
-.search input {
-  width: 300px;
 
+.submit {
+  background: transparent;
+  border: 0;
+  bottom: 0;
+  cursor: pointer;
+  height: 24px;
+  position: absolute;
+  right: 10px;
+  width: 25px;
+  bottom: 2px;
+
+}
+
+.hr {
+  color: black;
+  height: 4px;
 }

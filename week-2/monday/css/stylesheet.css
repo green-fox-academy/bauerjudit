@@ -2,6 +2,12 @@ body {
   color: green;
 }
 
+a {
+   color: rgba(6, 69, 173)
+   text-decoration: none;
+ }
+
+
 .container {
   background: aqua;
   width: 500px;
