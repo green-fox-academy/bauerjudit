@@ -56,13 +56,20 @@ body {
 
  ul {
    list-style-type: disc;
-   list-style-image: #0b0080;
+   font-family: sans-serif;
+   font-size: 14px;
+   line-height: 25px;
  }
 
  ol {
    font-family: sans-serif;
    font-size: 12px;
    line-height: 25px;
+ }
+
+ .warning {
+   padding-left: 20px;
+   padding-bottom: 10px;
  }
 
  .source {
@@ -161,6 +168,25 @@ input[type="search"]::-webkit-search-results-decoration {
   width: 100%;
 }
 
+.awards ul li,
+.publications ul li {
+ list-style: none;
+ margin-left: 5px;
+}
+
+.awards ul li:before,
+.publications ul li:before {
+ content:'\2022';
+ color: blue;
+ display: block;
+ font-size: 20px;
+ left: -15px;
+ max-width: 0px;
+ max-height: 0px;
+ position: relative;
+ top: 0;
+}
+
 .main-sidebar {
   order: 0;
   width: 176px;
@@ -239,40 +265,73 @@ input[type="search"]::-webkit-search-results-decoration {
   padding: 3px;
   box-sizing: border-box;
   width: 230px;
-  height: 220px;
+  height: 230px;
   float: right;
 }
 .nasa img {
   background-color: #f9f9f9;
   width: 222px;
-  float: right;
   padding-bottom: 5px;
 }
 
 .nasa p {
   font-size: 12px;
   line-height: 15px;
+  padding-left: 5px;
+}
+
+.apollo {
+border: 1px solid #aaa;
+float: right;
+margin: 6px 0px 12px 12px;
+padding: 3px;
+box-sizing: border-box;
+width: 230px;
+height: 350px;
 }
 
 .apollo img {
   background-color: #f9f9f9;
   width: 222px;
   float: right;
-  border: 1px solid #aaa;
   margin: 6px 0px 12px 12px;
   padding: 3px;
   box-sizing: border-box;
+  margin-top: 0;
+}
+
+.apollo p {
+  font-size: 12px;
+  line-height: 15px;
+  margin-top: 0px;
+  padding-left: 5px;
+}
+
+.legacy {
+  border: 1px solid #aaa;
+  float: right;
+  margin: 6px 0px 12px 12px;
+  padding: 3px;
+  box-sizing: border-box;
+  width: 230px;
+  height: 330px;
 }
 
 .legacy img {
   background-color: #f9f9f9;
   width: 222px;
   float: right;
-  border: 1px solid #aaa;
   margin: 6px 0px 12px 12px;
   padding: 3px;
   box-sizing: border-box;
 }
+
+.legacy p {
+  font-size: 12px;
+  line-height: 15px;
+  padding-left: 5px;
+  }
+
 .main-footer {
   height: 150px;
 }
@@ -280,6 +339,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .main-footer p {
   font-size: 11px;
   line-height: 17px;
+  padding-left: 10px;
 }
 
 
@@ -340,6 +400,15 @@ input[type="search"]::-webkit-search-results-decoration {
   height: 1px;
 }
 
+.references ol {
+  -webkit-columns: 2 400px;
+  -webkit-column-gap: 5em;
+}
+
+.references li {
+  -webkit-column-break-inside: avoid;
+}
+
 .menu-top ul {
   padding-left: 15px;
 }
@@ -378,7 +447,7 @@ display: flex;
 
 .footer-menu {
   background: #f9f9f9;
-  border: 1px solid #aaa;
+
 }
 
 .footer-menu ul {
@@ -391,6 +460,7 @@ display: flex;
 
 .footer-menu li {
   flex-direction: row;
+  padding: 2.5px;
 }
 
 .footer-menu a {
