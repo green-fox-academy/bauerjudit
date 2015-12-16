@@ -1,3 +1,7 @@
+from random import randint
+
+
+
 class MenuItem():
     def __init__(self, num, name, action):
         self.num = num
@@ -33,6 +37,8 @@ class Menu():
         self.print_menu()
         self.choose(self.user_input())
 
+
+
 def add_character_name():
     name_input = input("Add character name: ")
     return name_input
@@ -40,13 +46,17 @@ def add_character_name():
 def exit():
     pass
 
-def print_status():
-    print("dexterity:", "health:", "luck:")
+def random_dex_h_l():
+    dex = randint(1, 6) + 6
+    health = randint(2, 12) + 12
+    luck = randint(1, 6) + 6
+    return(print("dexterity:", dex, "health:", health,"luck:", luck))
 
 
 def reroll_status_action():
-    pass
-    #refresh print_status
+    random_dex_h_l()
+    continue_action()
+
 
 def begin_action():
     pass
@@ -77,7 +87,7 @@ def continue_action():
         MenuItem(3, "Save", None),
         MenuItem(4, "Quit", exit)
     ])
-    print_status()
+    random_dex_h_l()
     continue_items.print_input_choose()
 
 def quit_action():
@@ -91,7 +101,7 @@ def quit_action():
 
 def new_game_action():
     new_game_items = Menu([
-        MenuItem(1, "Reenter name", add_character_name),
+        MenuItem(1, "Reenter name", new_game_action),
         MenuItem(2, "Continue", continue_action),
         MenuItem(3, "Save", None),
         MenuItem(4, "Quit", quit_action),
