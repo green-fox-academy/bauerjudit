@@ -61,9 +61,29 @@ class Character():
     def choose_potion(self, potion):
         reselect_potion_action(potion)
 
+    def inventory(self):
+        return(print("Character name:", self.name, "Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck, "Potion:", self.potion))
+
+class Enemy():
+    def __init__(self, name = None, dexterity = None, health = None, luck = None):
+        self.name = name
+        self.dexterity = dexterity
+        self.health = health
+        self.luck = luck
+
+    def enemy_inventory(self):
+        return(print("dexterity:", self.dexterity, "health:", self.health, "luck:", self.luck))
+
 
 def begin_action():
-    pass
+    begin_items = Menu([
+        MenuItem(1, "Strike", None),
+        MenuItem(2, "Retreat", None),
+        MenuItem(3, "Quit", exit),
+    ])
+    new_player.inventory()
+    begin_items.print_input_choose()
+
 
 def reroll_status_action():
     new_player.random_dexterity_health_luck()
@@ -124,4 +144,6 @@ main_menu = Menu([
 
 
 new_player = Character()
+monster = Enemy()
+
 main_menu.print_input_choose()
