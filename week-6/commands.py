@@ -74,6 +74,22 @@ class Enemy():
     def enemy_inventory(self):
         return(print("dexterity:", self.dexterity, "health:", self.health, "luck:", self.luck))
 
+class Strike():
+    def __init__(self):
+
+#def strike_method():
+
+
+def strike_submenu_action():
+    strike_submenu_items = Menu([
+        MenuItem(1, "Continue", None),
+        MenuItem(2, "Try your Luck", None),
+        MenuItem(3, "Retreat", None),
+        MenuItem(4, "Quit", exit)
+    ])
+    new_player.random_strike_dexterity()
+    monster.random_strike_dexterity
+    strike_submenu_items.print_input_choose()
 
 def begin_action():
     begin_items = Menu([
