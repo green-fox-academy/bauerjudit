@@ -1,6 +1,5 @@
 from random import randint
-
-
+#from character import *
 
 class MenuItem():
     def __init__(self, num, name, action):
@@ -37,45 +36,53 @@ class Menu():
         self.print_menu()
         self.choose(self.user_input())
 
+    def exit(self):
+        pass
 
 
-def add_character_name():
-    name_input = input("Add character name: ")
-    return name_input
+class Character():
+    def __init__(self, name = None, dexterity= None, health = None, luck = None, potion = None):
+        self.name = name
+        self.dexterity = dexterity
+        self.health = health
+        self.luck = luck
+        self.potion = potion
 
-def exit():
-    pass
+    def add_character_name(self):
+        self.name = input("Add character name: ")
+        return self.name
 
-def random_dex_h_l():
-    dex = randint(1, 6) + 6
-    health = randint(2, 12) + 12
-    luck = randint(1, 6) + 6
-    return(print("dexterity:", dex, "health:", health,"luck:", luck))
+    def random_dexterity_health_luck(self):
+        self.dexterity = randint(1, 6) + 6
+        self.health = randint(2, 12) + 12
+        self.luck = randint(1, 6) + 6
+        return(print("dexterity:", self.dexterity, "health:", self.health, "luck:", self.luck))
 
-
-def reroll_status_action():
-    random_dex_h_l()
-    continue_action()
+    def choose_potion(self, potion):
+        reselect_potion_action(potion)
 
 
 def begin_action():
     pass
 
+def reroll_status_action():
+    new_player.random_dexterity_health_luck()
+    continue_action()
 
-def reselect_potion_action():
+def reselect_potion_action(potion):
     reselect_potion_items = Menu([
         MenuItem(1, "Reselect Potion", potion_menu_action),
         MenuItem(2, "Continue", begin_action),
         MenuItem(3, "Quit", exit),
     ])
-    #print potion status
+    print(potion)
     reselect_potion_items.print_input_choose()
 
 def potion_menu_action():
     potion_menu_items = Menu([
-        MenuItem(1, "Potion of Health", reselect_potion_action),
-        MenuItem(2, "Potion of Dexterity", reselect_potion_action),
-        MenuItem(3, "Potion of Luck", reselect_potion_action),
+        MenuItem(1, "Potion of Health", lambda : new_player.choose_potion("Potion of Health")),
+        MenuItem(2, "Potion of Dexterity", lambda : new_player.choose_potion("Potion of Dexterity")),
+        MenuItem(3, "Potion of Luck", lambda: new_player.choose_potion("Potion of Luck")),
     ])
     potion_menu_items.print_input_choose()
 
@@ -87,7 +94,7 @@ def continue_action():
         MenuItem(3, "Save", None),
         MenuItem(4, "Quit", exit)
     ])
-    random_dex_h_l()
+    new_player.random_dexterity_health_luck()
     continue_items.print_input_choose()
 
 def quit_action():
@@ -106,8 +113,7 @@ def new_game_action():
         MenuItem(3, "Save", None),
         MenuItem(4, "Quit", quit_action),
         ])
-    add_character_name()
-    #new_game_items.print_menu()
+    new_player.add_character_name()
     new_game_items.print_input_choose()
 
 main_menu = Menu([
@@ -117,9 +123,5 @@ main_menu = Menu([
     ])
 
 
-
-
-
-#main_menu.print_menu()
-#main_menu.choose(main_menu.user_input())
+new_player = Character()
 main_menu.print_input_choose()
