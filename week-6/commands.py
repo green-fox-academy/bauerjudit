@@ -44,10 +44,36 @@ def print_status():
     print("dexterity:", "health:", "luck:")
 
 
+def reroll_status_action():
+    pass
+    #refresh print_status
+
+def begin_action():
+    pass
+
+
+def reselect_potion_action():
+    reselect_potion_items = Menu([
+        MenuItem(1, "Reselect Potion", potion_menu_action),
+        MenuItem(2, "Continue", begin_action),
+        MenuItem(3, "Quit", exit),
+    ])
+    #print potion status
+    reselect_potion_items.print_input_choose()
+
+def potion_menu_action():
+    potion_menu_items = Menu([
+        MenuItem(1, "Potion of Health", reselect_potion_action),
+        MenuItem(2, "Potion of Dexterity", reselect_potion_action),
+        MenuItem(3, "Potion of Luck", reselect_potion_action),
+    ])
+    potion_menu_items.print_input_choose()
+
+
 def continue_action():
     continue_items = Menu([
-        MenuItem(1, "Reroll status", None),
-        MenuItem(2, "Continue", None),
+        MenuItem(1, "Reroll status", reroll_status_action),
+        MenuItem(2, "Continue", potion_menu_action),
         MenuItem(3, "Save", None),
         MenuItem(4, "Quit", exit)
     ])
@@ -57,7 +83,7 @@ def continue_action():
 def quit_action():
     quit_items = Menu([
         MenuItem(1, "Save and quit", None),
-        MenuItem(2, "Quit and not save", None),
+        MenuItem(2, "Quit and not save", exit),
         MenuItem(3, "Resume", None)
     ])
     quit_items.print_input_choose()
