@@ -103,9 +103,26 @@ class Strike():
             new_player.health -= 2
             print(character.health)
 
+    def try_your_luck_method(self):
+        self.random_luck = randint(2, 12)
+        if self.random_luck > new_player.luck and self.character_strike < self.enemy_strike:
+            new_player.health -= 3
+            print("Health:", new_player.health)
+        elif self.random_luck <= new_player.luck and self.character_strike < self.enemy_strike:
+            new_player.health -= 1
+            new_player.luck -= 1
+            print("Health:", new_player.health, "Luck:", new_player.luck)
+        elif self.random_luck <= new_player.luck and self.character_strike > self.enemy_strike:
+            new_player.health -= 1
+            print("Health:", new_player.health)
+        else:
+            new_player.health -= 4
+            new_player.luck -= 1
+            print("Health:", new_player.health, "Luck:", new_player.luck)
 
 
-
+def try_your_luck_action():
+    fight.try_your_luck_method()
 
 
 def after_strike_action():
@@ -119,13 +136,10 @@ def after_strike_action():
     begin_items.print_input_choose()
 
 
-
-
-
 def strike_submenu_action():
     strike_submenu_items = Menu([
         MenuItem(1, "Continue", after_strike_action),
-        MenuItem(2, "Try your Luck", None),
+        MenuItem(2, "Try your Luck", try_your_luck_action),
         MenuItem(3, "Retreat", None),
         MenuItem(4, "Quit", exit)
     ])
