@@ -83,19 +83,40 @@ class Enemy():
         return(print("MONSTER Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck))
 
 class Strike():
-
+    def __init__(self, character_strike = None, enemy_strike = None):
+        self.character_strike = character_strike
+        self.enemy_strike = enemy_strike
     def strike_method(self):
         self.random_dexterity = randint(1, 6)
-        character_strike = self.random_dexterity + new_player.dexterity
-        enemy_strike = self.random_dexterity + monster.dexterity
-        if character_strike > enemy_strike:
-            print("You hit the monster")
+        self.random_dexterity = randint(1, 6)
+        self.character_strike = self.random_dexterity + new_player.dexterity
+        self.enemy_strike = self.random_dexterity + monster.dexterity
+        if self.character_strike > self.enemy_strike:
+            print("YOU HIT THE MONSTER")
         else:
-            print("The monster hit you")
+            print("THE MONSTER HIT YOU")
+    def after_strike_method(self):
+        if self.character_strike > self.enemy_strike:
+            monster.health -= 2
+            print(monster.health)
+        else:
+            new_player.health -= 2
+            print(character.health)
 
 
 
 
+
+
+def after_strike_action():
+    begin_items = Menu([
+        MenuItem(1, "Strike", strike_submenu_action),
+        MenuItem(2, "Retreat", None),
+        MenuItem(3, "Quit", exit),
+    ])
+    monster.random_health_enemy()
+    fight.after_strike_method()
+    begin_items.print_input_choose()
 
 
 
@@ -103,7 +124,7 @@ class Strike():
 
 def strike_submenu_action():
     strike_submenu_items = Menu([
-        MenuItem(1, "Continue", None),
+        MenuItem(1, "Continue", after_strike_action),
         MenuItem(2, "Try your Luck", None),
         MenuItem(3, "Retreat", None),
         MenuItem(4, "Quit", exit)
