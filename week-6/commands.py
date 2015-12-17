@@ -62,7 +62,7 @@ class Character():
         reselect_potion_action(potion)
 
     def inventory(self):
-        return(print("Character name:", self.name, "Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck, "Potion:", self.potion))
+        return(print("Character Name:", self.name, "Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck, "Potion:", self.potion))
 
 class Enemy():
     def __init__(self, name = None, dexterity = None, health = None, luck = None):
@@ -71,13 +71,34 @@ class Enemy():
         self.health = health
         self.luck = luck
 
+    def random_dexterity_enemy(self):
+        self.dexterity = randint(1, 6) + 6
+        return self.dexterity
+
+    def random_health_enemy(self):
+        self.health = randint(2, 12) + 12
+        return self.health
+
     def enemy_inventory(self):
-        return(print("dexterity:", self.dexterity, "health:", self.health, "luck:", self.luck))
+        return(print("MONSTER Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck))
 
 class Strike():
-    def __init__(self):
 
-#def strike_method():
+    def strike_method(self):
+        self.random_dexterity = randint(1, 6)
+        character_strike = self.random_dexterity + new_player.dexterity
+        enemy_strike = self.random_dexterity + monster.dexterity
+        if character_strike > enemy_strike:
+            print("You hit the monster")
+        else:
+            print("The monster hit you")
+
+
+
+
+
+
+
 
 
 def strike_submenu_action():
@@ -87,17 +108,20 @@ def strike_submenu_action():
         MenuItem(3, "Retreat", None),
         MenuItem(4, "Quit", exit)
     ])
-    new_player.random_strike_dexterity()
-    monster.random_strike_dexterity
+
+    fight.strike_method()
     strike_submenu_items.print_input_choose()
 
 def begin_action():
     begin_items = Menu([
-        MenuItem(1, "Strike", None),
+        MenuItem(1, "Strike", strike_submenu_action),
         MenuItem(2, "Retreat", None),
         MenuItem(3, "Quit", exit),
     ])
     new_player.inventory()
+    monster.random_dexterity_enemy()
+    monster.random_health_enemy()
+    monster.enemy_inventory()
     begin_items.print_input_choose()
 
 
@@ -161,5 +185,6 @@ main_menu = Menu([
 
 new_player = Character()
 monster = Enemy()
+fight = Strike()
 
 main_menu.print_input_choose()
