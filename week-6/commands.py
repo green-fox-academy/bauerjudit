@@ -1,25 +1,26 @@
 from random import randint
-#from character import *
 
 class MenuItem():
     def __init__(self, num, name, action):
         self.num = num
         self.name = name
         self.action = action
-
     def __repr__(self):
        return '{} {}'.format(self.num, self.name)
 
 class Menu():
     def __init__(self, items):
         self.items = items
+
     def choose (self, number):
         for item in self.items:
             if item.num == number:
                 return item.action()
+
     def print_menu(self):
         for item in self.items:
             print(item)
+
     def user_input(self):
         while True:
             try:
@@ -30,20 +31,19 @@ class Menu():
                     return user_input
             except ValueError:
                 print("Wrong input")
+
     def print_input_choose(self):
         self.print_menu()
         self.choose(self.user_input())
-    def exit(self):
-        pass
 
 
 class Character():
-    def __init__(self, name = None, dexterity= None, health = None, luck = None, potion = None):
-        self.name = name
-        self.dexterity = dexterity
-        self.health = health
-        self.luck = luck
-        self.potion = potion
+    def __init__(self):
+        self.name = None
+        self.dexterity = None
+        self.health = None
+        self.luck = None
+        self.potion = None
 
     def add_character_name(self):
         self.name = input("Add character name: ")
@@ -53,21 +53,25 @@ class Character():
         self.dexterity = randint(1, 6) + 6
         self.health = randint(2, 12) + 12
         self.luck = randint(1, 6) + 6
-        return(print("dexterity:", self.dexterity, "health:", self.health, "luck:", self.luck))
+        return (print
+        ("dexterity:", self.dexterity,
+         "health:", self.health,
+         "luck:", self.luck))
 
     def choose_potion(self, potion):
         action.reselect_potion_action(potion)
 
     def inventory(self):
-        return(print("Character Name:", self.name, "Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck, "Potion:", self.potion))
+        return (print
+        ("Character Name:", self.name,
+         "Dexterity:", self.dexterity,
+         "Health:", self.health,
+         "Luck:", self.luck,
+         "Potion:", self.potion,
+         "Sword",
+         "Leather armour"))
 
-class Enemy():
-    def __init__(self, name = None, dexterity = None, health = None, luck = None):
-        self.name = name
-        self.dexterity = dexterity
-        self.health = health
-        self.luck = luck
-
+class Enemy(Character):
     def random_dexterity_enemy(self):
         self.dexterity = randint(1, 6) + 6
         return self.dexterity
@@ -77,21 +81,26 @@ class Enemy():
         return self.health
 
     def enemy_inventory(self):
-        return(print("MONSTER Dexterity:", self.dexterity, "Health:", self.health, "Luck:", self.luck))
+        return(print
+        ("MONSTER Dexterity:", self.dexterity,
+         "Health:", self.health,
+         "Luck:", self.luck))
 
 class Strike():
-    def __init__(self, character_strike = None, enemy_strike = None):
-        self.character_strike = character_strike
-        self.enemy_strike = enemy_strike
+    def __init__(self):
+        self.character_strike = None
+        self.enemy_strike = None
+
     def strike_method(self):
         self.random_dexterity = randint(1, 6)
-        self.random_dexterity = randint(1, 6)
+        self.random_dexterity_monster = randint(1, 6)
         self.character_strike = self.random_dexterity + new_player.dexterity
-        self.enemy_strike = self.random_dexterity + monster.dexterity
+        self.enemy_strike = self.random_dexterity_monster + monster.dexterity
         if self.character_strike > self.enemy_strike:
             print("YOU HIT THE MONSTER")
         else:
             print("THE MONSTER HIT YOU")
+
     def after_strike_method(self):
         if self.character_strike > self.enemy_strike:
             monster.health -= 2
@@ -99,6 +108,7 @@ class Strike():
         else:
             new_player.health -= 2
             print(new_player.health)
+
     def try_your_luck_method(self):
         self.random_luck = randint(2, 12)
         if self.random_luck > new_player.luck and self.character_strike < self.enemy_strike:
@@ -107,18 +117,21 @@ class Strike():
         elif self.random_luck <= new_player.luck and self.character_strike < self.enemy_strike:
             new_player.health -= 1
             new_player.luck -= 1
-            print("Health:", new_player.health, "Luck:", new_player.luck)
+            print("Health:", new_player.health,
+                  "Luck:", new_player.luck)
         elif self.random_luck <= new_player.luck and self.character_strike > self.enemy_strike:
             new_player.health -= 1
             print("Health:", new_player.health)
         else:
             new_player.health -= 4
             new_player.luck -= 1
-            print("Health:", new_player.health, "Luck:", new_player.luck)
+            print("Health:", new_player.health,
+                  "Luck:", new_player.luck)
 
 class Actions():
     def try_your_luck_action(self):
         fight.try_your_luck_method()
+
     def after_strike_action(self):
         begin_items = Menu([
             MenuItem(1, "Strike", action.strike_submenu_action),
@@ -128,6 +141,7 @@ class Actions():
         monster.random_health_enemy()
         fight.after_strike_method()
         begin_items.print_input_choose()
+
     def strike_submenu_action(self):
         strike_submenu_items = Menu([
             MenuItem(1, "Continue", action.after_strike_action),
@@ -137,6 +151,7 @@ class Actions():
         ])
         fight.strike_method()
         strike_submenu_items.print_input_choose()
+
     def begin_action(self):
         begin_items = Menu([
             MenuItem(1, "Strike", action.strike_submenu_action),
@@ -148,9 +163,11 @@ class Actions():
         monster.random_health_enemy()
         monster.enemy_inventory()
         begin_items.print_input_choose()
+
     def reroll_status_action(self):
         new_player.random_dexterity_health_luck()
         action.continue_action()
+
     def reselect_potion_action(self, potion):
         reselect_potion_items = Menu([
             MenuItem(1, "Reselect Potion", action.potion_menu_action),
@@ -159,6 +176,7 @@ class Actions():
         ])
         print(potion)
         reselect_potion_items.print_input_choose()
+
     def potion_menu_action(self):
         potion_menu_items = Menu([
             MenuItem(1, "Potion of Health", lambda : new_player.choose_potion("Potion of Health")),
@@ -166,6 +184,7 @@ class Actions():
             MenuItem(3, "Potion of Luck", lambda: new_player.choose_potion("Potion of Luck")),
         ])
         potion_menu_items.print_input_choose()
+
     def continue_action(self):
         continue_items = Menu([
             MenuItem(1, "Reroll status", action.reroll_status_action),
@@ -175,6 +194,7 @@ class Actions():
         ])
         new_player.random_dexterity_health_luck()
         continue_items.print_input_choose()
+
     def quit_action(self):
         quit_items = Menu([
             MenuItem(1, "Save and quit", None),
@@ -182,6 +202,7 @@ class Actions():
             MenuItem(3, "Resume", None)
         ])
         quit_items.print_input_choose()
+
     def new_game_action(self):
         new_game_items = Menu([
             MenuItem(1, "Reenter name", action.new_game_action),
