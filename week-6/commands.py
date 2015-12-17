@@ -24,13 +24,16 @@ class Menu():
             print(item)
 
     def user_input(self):
-        try:
-            user_input = int(input("Choose a number: "))
-            if user_input == " " or user_input > len(self.items):
-                raise ValueError
-        except:
-            print("Wrong input")
-        return user_input
+        while True:
+            try:
+                user_input = int(input("Choose a number: "))
+                if user_input == " " or user_input > len(self.items) or user_input < 0:
+                    raise ValueError
+                else:
+                    return user_input
+            except ValueError:
+                print("Wrong input")
+
 
     def print_input_choose(self):
         self.print_menu()
@@ -101,8 +104,7 @@ class Strike():
             print(monster.health)
         else:
             new_player.health -= 2
-            print(character.health)
-
+            print(new_player.health)
     def try_your_luck_method(self):
         self.random_luck = randint(2, 12)
         if self.random_luck > new_player.luck and self.character_strike < self.enemy_strike:
