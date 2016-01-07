@@ -21,14 +21,20 @@ function changePicture(src) {
 var currentPicture = 0;
 
 function nextPicture() {
-  currentPicture++;
-  changePicture(images[currentPicture]);
-  if (currentPicture === images.length){
-    changePicture(images[0]);
+  if (currentPicture === images.length - 1) {
+    currentPicture = 0;
+    changePicture(images[currentPicture]);
+  } else {
+    currentPicture++;
+    changePicture(images[currentPicture]);
   }
 }
 
 function previousPicture() {
+  if (currentPicture === 0) {
+    currentPicture = images.length;
+    changePicture(images[currentPicture]);
+  }
   currentPicture--;
   changePicture(images[currentPicture]);
 }
