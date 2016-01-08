@@ -40,3 +40,12 @@ body {
   height: 600px;
   position: relative;
 }
+
+.thumbnail {
+  text-align: center;
+}
+.thumbnail img {
+  height: 50px;
+  width: 50px;
+
+}
