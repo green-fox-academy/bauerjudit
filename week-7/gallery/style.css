@@ -1,13 +1,42 @@
+body {
+  margin: 0;
+
+}
+
 .title {
   font-size: 100;
 }
 
-/*.imagesStyle {
-  size: 10 %;
-  width: 10 %;
-  height: 10 %;
+.header {
+  background-color: grey;
+}
+
+.left {
+  background-color: red;
   position: absolute;
+  height: 100%;
+  width: 50%;
   top: 0;
-  left :0;
-  transition: 1s;
-}*/
+  left: 0;
+}
+
+.right {
+  background-color: blue;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  top: 0;
+  right: 0;
+}
+
+.imagesStyle {
+  position: absolute;
+  display: block;
+  margin: 0 auto;
+  max-width: 80%;
+}
+
+.gallery {
+  height: 800px;
+  position: relative;
+}

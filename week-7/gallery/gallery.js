@@ -3,8 +3,6 @@
 var title = document.querySelector(".title");
 title.classList.add("title");
 
-var imagesStyle = document.querySelector(".imagesStyle");
-imagesStyle.classList.add("imagesStyle");
 
 var currentPicture = 0;
 
@@ -15,9 +13,11 @@ var images = [
   "http://desktopography.net/media/exhibition/2010/spartan/large.jpg"
 ];
 
-var nextpicture = document.querySelector("img");
+var picture = document.querySelector("img");
 var buttonRight = document.querySelector(".changeright");
 var buttonLeft = document.querySelector(".changeleft");
+
+
 
 
 function nextPicture() {
@@ -40,7 +40,7 @@ function previousPicture() {
 }
 
 function changePicture(src) {
-  nextpicture.setAttribute("src", src);
+  picture.setAttribute("src", src);
 }
 
 
@@ -50,4 +50,8 @@ buttonRight.addEventListener("click", function () {
 
 buttonLeft.addEventListener("click", function () {
   previousPicture();
+})
+
+picture.addEventListener("click", function () {
+  nextPicture();
 })
