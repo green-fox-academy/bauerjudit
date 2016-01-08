@@ -3,7 +3,6 @@
 var title = document.querySelector(".title");
 title.classList.add("title");
 
-
 var currentPicture = 0;
 
 var images = [
@@ -12,6 +11,10 @@ var images = [
   "http://desktopography.net/media/exhibition/2010/island_paradise/large.jpg",
   "http://desktopography.net/media/exhibition/2010/spartan/large.jpg"
 ];
+
+var leftClick = document.querySelector(".left");
+var rightClick = document.querySelector(".right");
+
 
 var picture = document.querySelector("img");
 var buttonRight = document.querySelector(".changeright");
@@ -44,14 +47,18 @@ function changePicture(src) {
 }
 
 
-buttonRight.addEventListener("click", function () {
+/*buttonRight.addEventListener("click", function () {
   nextPicture();
 })
 
 buttonLeft.addEventListener("click", function () {
   previousPicture();
+})*/
+
+rightClick.addEventListener("click", function () {
+  nextPicture();
 })
 
-picture.addEventListener("click", function () {
-  nextPicture();
+leftClick.addEventListener("click", function () {
+  previousPicture();
 })
