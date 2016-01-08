@@ -46,6 +46,9 @@ body {
 }
 .thumbnail img {
   height: 50px;
+  margin-right: 10px;
+  margin-bottom: 180px;
   width: 50px;
+
 
 }
