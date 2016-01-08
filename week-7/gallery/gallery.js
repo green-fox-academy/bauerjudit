@@ -1,10 +1,12 @@
 "use strict";
 
 var title = document.querySelector(".title");
-
-
 title.classList.add("title");
 
+var imagesStyle = document.querySelector(".imagesStyle");
+imagesStyle.classList.add("imagesStyle");
+
+var currentPicture = 0;
 
 var images = [
   "http://desktopography.net/media/exhibition/2010/rush_cocktail/large.jpg",
@@ -13,12 +15,10 @@ var images = [
   "http://desktopography.net/media/exhibition/2010/spartan/large.jpg"
 ];
 
-function changePicture(src) {
-  var nextpicture = document.querySelector("img");
-  nextpicture.setAttribute("src", src);
-}
+var nextpicture = document.querySelector("img");
+var buttonRight = document.querySelector(".changeright");
+var buttonLeft = document.querySelector(".changeleft");
 
-var currentPicture = 0;
 
 function nextPicture() {
   if (currentPicture === images.length - 1) {
@@ -39,13 +39,15 @@ function previousPicture() {
   changePicture(images[currentPicture]);
 }
 
+function changePicture(src) {
+  nextpicture.setAttribute("src", src);
+}
 
-var buttonRight = document.querySelector(".changeright");
+
 buttonRight.addEventListener("click", function () {
   nextPicture();
 })
 
-var buttonLeft = document.querySelector(".changeleft");
 buttonLeft.addEventListener("click", function () {
   previousPicture();
 })
