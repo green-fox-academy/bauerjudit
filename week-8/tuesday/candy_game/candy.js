@@ -1,25 +1,45 @@
 "use strict";
 
-var candyCount = 0;
+var candyCount = 100;
 var lollypopCount = 0;
 var buyCandyButton = document.querySelector(".BuyCandie");
 var buyLollypopButton = document.querySelector(".BuyLollypop");
 var candieCounter = document.querySelector(".CandieCounter");
 var lollypopCounter = document.querySelector(".LollypopCounter");
+var candySpeed = 0;
 
-
-buyCandyButton.addEventListener("click", function() {
+function buyCandies () {
   candyCount++;
-  candieCounter.innerHTML = "You have" + " " + candyCount + " " + "candies!";
-});
+  updateCandy();
+}
 
-buyLollypopButton.addEventListener("click", function() {
+function buyLollypop () {
   if (candyCount >= 10) {
     lollypopCount++;
     candyCount -= 10;
-    lollypopCounter.innerHTML = "You have" + " " + lollypopCount + " " + "lollypops!";
-    candieCounter.innerHTML = "You have" + " " + candyCount + " " + "candies!";
+    updateLollypop();
+    updateCandy();
+    candySpeed = Math.floor(lollypopCount / 10);
   } else {
-    lollypopCounter.innerHTML = "You have" + " " + lollypopCount + " " + "lollypops!";
+    updateLollypop;
   }
-});
+}
+
+function updateCandy () {
+  candieCounter.innerHTML = "You have " + candyCount + " candies!";
+}
+
+function updateLollypop () {
+  lollypopCounter.innerHTML = "You have " + lollypopCount + " lollypops!";
+}
+
+buyCandyButton.addEventListener("click", buyCandies);
+buyLollypopButton.addEventListener("click", buyLollypop);
+
+
+var interval = setInterval(function () {
+  if (lollypopCount >= 10 && lollypopCount !== 0) {
+  candyCount += candySpeed;
+  updateCandy();
+  }
+}, 1000);
