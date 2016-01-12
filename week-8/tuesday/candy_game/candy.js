@@ -1,7 +1,7 @@
 "use strict";
 
-var candyCount = 100;
-var lollypopCount = 21;
+var candyCount = 0;
+var lollypopCount = 0;
 var buyCandyButton = document.querySelector(".BuyCandie");
 var buyLollypopButton = document.querySelector(".BuyLollypop");
 var candieCounter = document.querySelector(".CandieCounter");
@@ -9,6 +9,15 @@ var lollypopCounter = document.querySelector(".LollypopCounter");
 var candiePersec = document.querySelector(".CandieSpeed");
 var candySpeed = 0;
 
+setInterval(isDisable, 50);
+
+function isDisable () {
+  if (candyCount < 10) {
+    buyLollypopButton.setAttribute("disabled", "disabled");
+  } else {
+    buyLollypopButton.removeAttribute("disabled");
+  }
+}
 
 function buyCandies () {
   candyCount++;
