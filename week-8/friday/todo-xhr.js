@@ -3,7 +3,6 @@
 var url = 'https://mysterious-dusk-8248.herokuapp.com/todos';
 
 
-
 function startRequest(text) {
   postItemToServer(text, appendP)
 }
@@ -49,7 +48,7 @@ function listTodoItems(todoItems) {
     newTodoItem.setAttribute("id", todoItem.id);
     newTodoItem.innerText = todoItem.text;
     newTodoItem.addEventListener("click", function() {
-      deleteItemFromServer(todoItem.id, deleteItemfromTodoList);
+      textArea.innerText = todoItem.id;
     })
     todoContainer.appendChild(newTodoItem);
   })
@@ -77,8 +76,6 @@ function deleteItemfromTodoList(id) {
 }
 
 
-
-
 var textArea = document.querySelector(".inputTodo");
 var addNewTodo = JSON.stringify({text: textArea.value});
 
@@ -88,9 +85,7 @@ addButton.addEventListener("click", function() {
   startRequest(textArea.value);
 });
 
-
 var removeButton = document.querySelector(".removeButton");
-
-/*removeButton.addEventListener("click", function() {
-  deleteItem()
-});*/
+removeButton.addEventListener("click", function() {
+  deleteItemFromServer(textArea.value, deleteItemfromTodoList)
+});
