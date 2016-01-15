@@ -3,6 +3,7 @@
 var url = 'https://mysterious-dusk-8248.herokuapp.com/todos';
 
 
+
 function startRequest(text) {
   postItemToServer(text, appendP)
 }
@@ -10,6 +11,7 @@ function startRequest(text) {
 function appendP(response) {
   var output = document.querySelector(".todo");
   output.innerText = response.text;
+
 }
 
 function postItemToServer(text, callback) {
@@ -44,7 +46,11 @@ function listTodoItems(todoItems) {
   var todoContainer = document.querySelector(".listTodos");
   todoItems.forEach(function(todoItem) {
     var newTodoItem = document.createElement("p");
+    newTodoItem.setAttribute("id", todoItem.id);
     newTodoItem.innerText = todoItem.text;
+    newTodoItem.addEventListener("click", function() {
+      deleteItemFromServer(todoItem.id, deleteItemfromTodoList);
+    })
     todoContainer.appendChild(newTodoItem);
   })
 }
@@ -53,9 +59,9 @@ listItemsFromServer(listTodoItems);
 
 
 
-/*function deleteItemFromServer(id, callback) {
+function deleteItemFromServer(id, callback) {
   var req = new XMLHttpRequest();
-  req.open("DELETE", url + "/" + todos.id);
+  req.open("DELETE", url + "/" + id);
   req.send();
   req.onreadystatechange = function () {
     if (req.readyState === 4) {
@@ -66,13 +72,13 @@ listItemsFromServer(listTodoItems);
 }
 
 function deleteItemfromTodoList(id) {
-  var deleteItem = document.getelementById(id);
+  var deleteItem = document.getElementById(id);
   deleteItem.remove();
 }
 
-function delete() {
-  deleteItemFromServer(deleteItemfromTodoList);
-}*/
+
+
+
 var textArea = document.querySelector(".inputTodo");
 var addNewTodo = JSON.stringify({text: textArea.value});
 
@@ -85,4 +91,6 @@ addButton.addEventListener("click", function() {
 
 var removeButton = document.querySelector(".removeButton");
 
-//removeButton.addEventListener("click", delete);
+/*removeButton.addEventListener("click", function() {
+  deleteItem()
+});*/
