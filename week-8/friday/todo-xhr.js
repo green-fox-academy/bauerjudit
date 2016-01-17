@@ -2,7 +2,6 @@
 
 var url = 'https://mysterious-dusk-8248.herokuapp.com/todos';
 
-
 function startRequest(text) {
   postItemToServer(text, appendP)
 }
@@ -10,7 +9,6 @@ function startRequest(text) {
 function appendP(response) {
   var output = document.querySelector(".todo");
   output.innerText = response.text;
-
 }
 
 function postItemToServer(text, callback) {
@@ -27,7 +25,6 @@ function postItemToServer(text, callback) {
     }
   };
 }
-
 
 function listItemsFromServer(callback) {
   var req = new XMLHttpRequest();
@@ -55,8 +52,6 @@ function listTodoItems(todoItems) {
 }
 
 listItemsFromServer(listTodoItems);
-
-
 
 function deleteItemFromServer(id, callback) {
   var req = new XMLHttpRequest();
