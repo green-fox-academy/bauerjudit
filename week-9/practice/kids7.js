@@ -9,7 +9,7 @@ var kids = [
 
 function countBySex(kids) {
   var array = {female: [], male: []};
-  kids.forEach(function(e) {
+  kids.forEach(function() {
     if (e.sex === "male" ) {
       array.male.push(e);
     } else {
