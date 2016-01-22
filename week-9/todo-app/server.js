@@ -7,7 +7,7 @@ var items = require("./items.js");
 var app = express();
 
 
-items.get();
+// items.get();
 
 /*items.add({todo_text: 'Buy milk'});
 items.add({todo_text: 'Make dinner'});
@@ -19,9 +19,11 @@ app.use(express.static("public"));
 app.use(bodyParser.json());
 
 
-app.get("/todos", function (req, res) {
-  res.json(items.all());
-});
+    app.get("/todos", function (req, res) {
+      items.getItems(function (allItems) {
+        res.status(200).json(allItems);
+      });
+    });
 
 
 app.post("/todos", function (req, res) {

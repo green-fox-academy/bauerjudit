@@ -1,6 +1,6 @@
 "use strict";
 
-var url = 'http://localhost:3000/todo.html';
+var url = 'http://localhost:3000/todos';
 
 function startRequest(text) {
   postItemToServer(text, appendP)

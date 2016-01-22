@@ -25,10 +25,11 @@ function getItem(id) {
   });
 }
 
-function getItems(attributes) {
+function getItems(callback) {
   connection.query('SELECT * FROM `todo`', function(err, results) {
     if (err) throw err;
     console.log(results);
+    callback(results);
   });
 }
 
@@ -59,7 +60,7 @@ var items = {};
 
 module.exports = {
   add: addItem,
-  get: getItems,
+  getItems: getItems,
   remove: deleteItem
 };
 
