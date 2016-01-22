@@ -70,6 +70,13 @@ function deleteItemfromTodoList(id) {
   deleteItem.remove();
 }
 
+function refreshHtml() {
+  refresh.innerHTML = "";
+}
+
+refreshHtml();
+
+var refresh = document.querySelector(".listTodos");
 
 var textArea = document.querySelector(".inputTodo");
 var addNewTodo = JSON.stringify({text: textArea.value});

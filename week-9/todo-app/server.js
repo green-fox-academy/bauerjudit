@@ -7,42 +7,39 @@ var items = require("./items.js");
 var app = express();
 
 
-// items.get();
-
-/*items.add({todo_text: 'Buy milk'});
-items.add({todo_text: 'Make dinner'});
-items.add({todo_text: 'Save the world'});*/
-
 
 app.use(logRequest);
 app.use(express.static("public"));
 app.use(bodyParser.json());
 
 
-    app.get("/todos", function (req, res) {
-      items.getItems(function (allItems) {
-        res.status(200).json(allItems);
-      });
-    });
-
-
-app.post("/todos", function (req, res) {
-  var item = items.add(req.body);
-  res.status(201).json(item);
+app.get("/todos", function (req, res) {
+  items.getItems(function (allItems) {
+    res.status(200).json(allItems);
+ });
 });
 
 
+app.post("/todos", function (req, res) {
+  var attribute = req.body;
+  console.log(attribute);
+  items.addItem(attribute, function (item) {
+    res.status(201).json(item);
+  });
+});
+
 app.get("/todos/:id", function (req, res) {
-  findItem(req, res, function (item) { 
-    res.json(item); 
+  var id = parseInt(req.params.id);
+  console.log(id)
+  items.getItem(id, function (item) {
+    res.status(200).json(item);
   });
 });
 
 
 app.put("/todos/:id", function (req, res) {
-  findItem(req, res, function (item) {
-    item.update(req.body);
-    res.json(item);
+  items.addItem(id, function (item) {
+    res.status(200).json(item)
   });
 });
 

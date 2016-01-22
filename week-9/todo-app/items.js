@@ -12,23 +12,23 @@ var connection = mysql.createConnection({
 connection.connect();
 
 
-function addItem(attributes) {
-  connection.query('INSERT INTO todo SET ?', attributes, function(err, result) {
+function addItem(attribute, callback) {
+  connection.query('INSERT INTO todo SET ?', attribute, function(err, result) {
     if (err) throw err;
-    console.log(result.insertId);
+    getItem(result.insertId, callback);
   });
 }
 
-function getItem(id) {
-  connection.query('SELECT id, todo_text, todo_status FROM todo WHERE id = ?', id, function(err, result) {
+function getItem(id, callback) {
+  connection.query('SELECT * FROM todo WHERE id = ?', id, function(err, result) {
     if (err) throw err;
+    callback(result[0]);
   });
 }
 
 function getItems(callback) {
   connection.query('SELECT * FROM `todo`', function(err, results) {
     if (err) throw err;
-    console.log(results);
     callback(results);
   });
 }
@@ -59,38 +59,9 @@ function nextId() {
 var items = {};
 
 module.exports = {
-  add: addItem,
+  addItem: addItem,
+  getItem: getItem,
   getItems: getItems,
   remove: deleteItem
 };
 
-/*function getItem(id) {
-  return items[id];
-}
-
-function addItem(attributes) {
-  connection.query('INSERT INTO todo SET ?', attributes, function(err, result) {
-    if (err) throw err;
-    console.log(result.insertId);
-  });
-}
-
-
-function removeItem(id) {
-  delete items[id];
-}
-
-function allItems() {
-  var values = [];
-  for (id in items) {
-    values.push(items[id]);
-  }
-  return values;
-}
-
-module.exports = {
-  get: getItem,
-  add: addItem,
-  remove: removeItem,
-  all: allItems
-};*/
